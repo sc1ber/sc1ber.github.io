@@ -23,8 +23,9 @@ async function open_terminal(){
   createText("starting the server...")
   await delay(1500);
   createText("hi there")
+  await delay(1000);
   createText("try these commands:")
- 
+  await delay(500);
   createCode("commands", "list all commands")
   createCode("about", "who am i?")
   createCode("games","games i play")
