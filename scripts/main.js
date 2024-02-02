@@ -26,7 +26,7 @@ async function open_terminal(){
   createText("try these commands:");
  
   createCode("commands", "list all commands");
-  createCode("about", "who am i and what do i do");
+  createCode("about", "who am i?");
   createCode("games","games i play");
   createCode("love", "love me? pls?")
   createCode("social", "all my social networks");
@@ -73,7 +73,7 @@ async function getInputValue(){
   if(value === "commands"){
     trueValue(value);
     createCode("commands", "list all commands");
-    createCode("about", "who am i and what do i do");
+    createCode("about", "who am i?");
     createCode("games","games i play");
     createCode("love", "love me? pls?")
     createCode("social", "all my social networks");
@@ -138,7 +138,7 @@ function trueValue(value){
   const div = document.createElement("section");
   div.setAttribute("class", "type2")
   const i = document.createElement("i");
-  i.setAttribute("class", "fas fa-angle-right icone")
+  i.setAttribute("class", "fas fa-chevron-right icone")
   const mensagem = document.createElement("h2");
   mensagem.setAttribute("class", "sucess")
   mensagem.textContent = `${value}`;
@@ -152,7 +152,7 @@ function falseValue(value){
   const div = document.createElement("section");
   div.setAttribute("class", "type2")
   const i = document.createElement("i");
-  i.setAttribute("class", "fas fa-angle-right icone error")
+  i.setAttribute("class", "fas fa-chevron-right icone error")
   const mensagem = document.createElement("h2");
   mensagem.setAttribute("class", "error")
   mensagem.textContent = `${value}`;
