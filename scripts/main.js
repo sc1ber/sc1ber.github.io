@@ -20,16 +20,17 @@ app.addEventListener("click", function(event){
 
 
 async function open_terminal(){
-  createText("starting the server...");
+  createText("starting the server...")
   await delay(1500);
-  createText("hi there");
-  createText("try these commands:");
+  createText("hi there")
+  createText("try these commands:")
  
-  createCode("commands", "list all commands");
-  createCode("about", "who am i?");
-  createCode("games","games i play");
+  createCode("commands", "list all commands")
+  createCode("about", "who am i?")
+  createCode("games","games i play")
   createCode("love", "love me? pls?")
-  createCode("social", "all my social networks");
+  createCode("social", "all my social networks")
+  createCode("clear","clean terminal")
 
   await delay(500);
   new_line();
@@ -72,11 +73,12 @@ async function getInputValue(){
   const value = document.querySelector("input").value;
   if(value === "commands"){
     trueValue(value);
-    createCode("commands", "list all commands");
-    createCode("about", "who am i?");
-    createCode("games","games i play");
+    createCode("commands", "list all commands")
+    createCode("about", "who am i?")
+    createCode("games","games i play")
     createCode("love", "love me? pls?")
-    createCode("social", "all my social networks");
+    createCode("social", "all my social networks")
+    createCode("clear","clean terminal")
   }
   else if(value === "love"){
     createText("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ ")
@@ -127,9 +129,14 @@ async function getInputValue(){
     document.querySelectorAll("p").forEach(e => e.parentNode.removeChild(e));
     document.querySelectorAll("section").forEach(e => e.parentNode.removeChild(e));
   }
+  else if(value === "help"){
+    falseValue(value);
+    createText("(  • · • ) you're on your own lol :3")
+  }
   else{
     falseValue(value);
-    createText(`command not found: ${value}`)
+    createText(`¯\\_(ツ)_/¯ command not found: ${value}`)
+    createText("( ☞˙ᵕ˙)☞ try'commands'")
   }
 }
 
