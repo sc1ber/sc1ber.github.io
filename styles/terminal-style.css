@@ -1,0 +1,141 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    
+    background-color: #000000;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb
+{
+border-radius: 10px;
+box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #414141;
+}
+  
+a{
+    text-decoration: none;
+    color: rgb(238, 238, 238);
+}
+h1{
+    font-size:24px;
+    color:#ffffff;
+}
+body{
+    background-color:#000000;
+
+    height: 100vh;
+    font-family: 'Monaco', monospace;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+#app{
+    display:flex;
+    flex-direction: column;
+    background-color:rgba(0, 0, 0, 0);
+    width:100%;
+    height:100%;
+    padding:8px;
+    overflow: auto;
+}
+p{
+    font-size:16px;
+    color:rgb(238, 238, 238);
+    padding:2px 0;
+}
+p.code{
+    font-weight: bold;
+    color:#00ff00;
+    margin-left:8px;
+}
+span.text{
+  margin-left:16px;
+  color:white;
+}
+p.path{
+    color:#00ff00;
+}
+p.path span{
+    color:#ffffff;
+}
+p.path span + span{
+    color:#9CEAF3;
+}
+p.path span + span + span{
+    margin-left: 2px;
+    color:#ffffff;
+}
+.container{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    max-width:99%;
+    height:60%;
+    overflow: hidden;
+    margin:20px;
+    cursor: text;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+div.title{
+    flex:1;
+    text-align:center;
+}
+input{
+    border:none;
+    background-color: unset;
+    color:#ffffff;
+    width:100%;
+    font-size:14px;
+    font-family: 'Lucida Console';
+}
+input:focus{
+    border:none;
+    outline: none;
+    box-shadow: none;
+    background-color: unset;
+}
+.type{
+    display:flex;
+    align-items: center;
+    padding:8px 0;
+}
+.type2{
+    display:flex;
+    align-items: center;
+    padding:8px 0;
+}
+.icone{
+    color:#00ff00;
+    padding-right:8px;
+}
+.icone.error{
+    color:#ff0000;
+}
+.sucess{
+    color:#00ff00;
+}
+.error{
+    color:#ff0000;
+}
+h2{
+    font-size:16px;
+}
+img {
+    width: 20px;
+    height: 20px;
+}
