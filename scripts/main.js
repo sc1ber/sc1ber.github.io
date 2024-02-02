@@ -107,7 +107,7 @@ async function getInputValue(){
     createText(" |˶˙ᵕ˙ )ﾉﾞ")
     createText("hola")
     createText("i am sam")
-    createText("i am a computer engineer grad")
+    createText("im a computer engineering grad")
     createText("and i play video games")
   }
   else if(value === "games"){
