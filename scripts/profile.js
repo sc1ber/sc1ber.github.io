@@ -34,13 +34,7 @@ async function open_terminal(){
           clearInterval(interval);
           await delay(1000);
           document.getElementById('loading-bar').remove();
-          await delay(1000);
-          createText("Hello")
-          await delay(1500);
-          createText("################################")
-          aboutOutput();
-          await delay(500);
-          new_line();
+          welcome();
       } else {
           updateProgressBar(currentPercentage + '%');
       }
@@ -80,20 +74,33 @@ function removeInput(){
   app.removeChild(div);
 }
 
+async function welcome(){
+  await delay(1000);
+  createText("Hello")
+  await delay(1500);
+  createText("################################")
+  aboutOutput();
+  createText("################################")
+  await delay(1500);
+  createText("try these commands:")
+  commandsOutput();
+  await delay(500);
+  new_line();
+}
+
 function aboutOutput(){
-  createText("<span class ='initial'>Name:</span> test")
-  createText("hola")
-  createText("i am sam")
-  createText("im a computer engineering grad")
-  createText("and i play video games")
+  createText("<i class='fa-solid fa-user'></i><span class ='success'> Name: </span>Samuel II Imperial")
+  createText("<i class='fa-solid fa-graduation-cap'></i><span class ='success'> Education: </span>BS in Computer Engineering")
+  createText("with Specialization in Cybersecurity")
+  createText("Mapúa University (2018-2023)")
+  createText("<i class='fa-solid fa-location-dot'></i><span class ='success'> Location: </span>Quezon City, Philippines")
 }
 
 function commandsOutput(){
   createCode("commands", "list all commands")
   createCode("about", "who am i?")
-  createCode("games","games i play")
-  createCode("love", "love me? pls?")
   createCode("social", "all my social networks")
+  createCode("contact", "get in touch")
   createCode("clear","clean terminal")
 }
 
@@ -104,46 +111,14 @@ async function getInputValue(){
     trueValue(value);
     commandsOutput();
   }
-  else if(value === "love"){
-    createText("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ ")
-    createText("⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀ ")
-    createText("⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀ ")
-    createText("⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀ ")
-    createText("⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀ ")
-    createText( "⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀ ")
-    createText( "⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀ ")
-    createText("⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀ ")
-    createText("⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀ ")
-    createText("⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⠀⠀ ")
-    createText( "⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀ ")
-    createText("⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀ ")
-    createText("⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀ ")
-    createText("⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀ ")
-    createText("⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀ ")
-    createText("⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀ ")
-    createText("⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀ ")
-    createText("⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀ ")
-    createText(" ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀")
-  }
   else if(value === "about"){
     trueValue(value);
     aboutOutput();
   }
-  else if(value === "games"){
-    trueValue(value);
-    createText("if u wanna play, just add me")
-    createText("<img src ='icons/genshin.svg' alt='Genshin Impact'> Genshin Impact UID: 803068769")
-    createText("<img src ='icons/sr.svg' alt='Honkai Star Rail'> Honkai SR UID: 800409162")
-    createText("<img src ='icons/riot.svg' alt='Riot Games'> Riot ID: uio#0000")
-    createText("<img src ='icons/steam.svg' alt='Steam'><a href='https://steamcommunity.com/id/scethious/' target='a_blank'> Steam Code: 279336182</a>")
-  }
   else if(value === "social"){
     trueValue(value);
-    createText("<i class='fa-brands fa-discord'></i> scethious")
-    createText("<a href='https://www.instagram.com/seken.sam/' target='_blank'><i class='fa-brands fa-instagram'></i> seken.sam</a>")
-    createText("<a href='https://www.facebook.com/seken.sam/' target='_blank'><i class='fa-brands fa-facebook'></i> seken.sam</a>")
-    createText("<a href='https://github.com/sc1ber/' target='_blank'><i class='fab fa-github'></i> sc1ber</a>")
-    createText("<a href='https://www.linkedin.com/in/samuel-ii-imperial-b4b695201/' target='_blank'><i class='fa-brands fa-linkedin'></i> sam imperial</a>")
+    createText("<a href='https://github.com/sc1ber/' target='_blank'><i class='fab fa-github'></i><span class ='success'> Github: </span>sc1ber (click me)</a>")
+    createText("<a href='https://www.linkedin.com/in/samuel-ii-imperial-b4b695201/' target='_blank'><i class='fa-brands fa-linkedin'></i><span class ='success'> Linkedin: </span>Samuel II Imperial (click me)</a>")
   }  
   else if(value === "clear"){
     document.querySelectorAll("p").forEach(e => e.parentNode.removeChild(e));
@@ -151,15 +126,12 @@ async function getInputValue(){
   }
   else if(value === "help"){
     falseValue(value);
-    createText("(  • · • ) you're on your own lol :3")
-  }
-  else if(value == "test"){
-    window.location.replace("http://www.w3schools.com");
+    createText("try <span class='success'>commands</span>")
   }
   else{
     falseValue(value);
-    createText(`¯\\_(ツ)_/¯ command not found: ${value}`)
-    createText("( ☞˙ᵕ˙)☞ try'commands'")
+    createText(`command not found: <span class='error'>${value}</span>`)
+    createText("try <span class='success'>commands</span>")
   }
 }
 
@@ -170,7 +142,7 @@ function trueValue(value){
   const i = document.createElement("i");
   i.setAttribute("class", "fas fa-chevron-right icone")
   const mensagem = document.createElement("h2");
-  mensagem.setAttribute("class", "sucess")
+  mensagem.setAttribute("class", "success")
   mensagem.textContent = `${value}`;
   div.appendChild(i);
   div.appendChild(mensagem);

@@ -151,7 +151,7 @@ function trueValue(value){
   const i = document.createElement("i");
   i.setAttribute("class", "fas fa-chevron-right icone")
   const mensagem = document.createElement("h2");
-  mensagem.setAttribute("class", "sucess")
+  mensagem.setAttribute("class", "success")
   mensagem.textContent = `${value}`;
   div.appendChild(i);
   div.appendChild(mensagem);
