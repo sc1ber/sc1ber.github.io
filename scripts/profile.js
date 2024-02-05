@@ -18,23 +18,34 @@ app.addEventListener("click", function(event){
   input.focus();
 })
 
+function updateProgressBar(percentage) {
+  const progressBarFilled = document.querySelector('.progress-bar-filled');
+  progressBarFilled.style.width = percentage;
+  progressBarFilled.setAttribute('data-filled', 'loading page ' + percentage );
+}
 
 async function open_terminal(){
-  createText("starting the server...")
-  await delay(1500);
-  createText("hi there")
-  await delay(1000);
-  createText("try these commands:")
-  await delay(500);
-  createCode("commands", "list all commands")
-  createCode("about", "who am i?")
-  createCode("games","games i play")
-  createCode("love", "love me? pls?")
-  createCode("social", "all my social networks")
-  createCode("clear","clean terminal")
-
-  await delay(500);
-  new_line();
+  updateProgressBar('0%');
+  await delay(2000); 
+  let currentPercentage = 0;
+  const interval = setInterval(async function () {
+    currentPercentage += 1;
+      if (currentPercentage > 100) {
+          clearInterval(interval);
+          await delay(1000);
+          document.getElementById('loading-bar').remove();
+          await delay(1000);
+          createText("Hello")
+          await delay(1500);
+          createText("################################")
+          aboutOutput();
+          await delay(500);
+          new_line();
+      } else {
+          updateProgressBar(currentPercentage + '%');
+      }
+  }, 50);
+  
 }
 
 function new_line(){
@@ -69,17 +80,29 @@ function removeInput(){
   app.removeChild(div);
 }
 
+function aboutOutput(){
+  createText("<span class ='initial'>Name:</span> test")
+  createText("hola")
+  createText("i am sam")
+  createText("im a computer engineering grad")
+  createText("and i play video games")
+}
+
+function commandsOutput(){
+  createCode("commands", "list all commands")
+  createCode("about", "who am i?")
+  createCode("games","games i play")
+  createCode("love", "love me? pls?")
+  createCode("social", "all my social networks")
+  createCode("clear","clean terminal")
+}
+
 async function getInputValue(){
   
   const value = document.querySelector("input").value;
   if(value === "commands"){
     trueValue(value);
-    createCode("commands", "list all commands")
-    createCode("about", "who am i?")
-    createCode("games","games i play")
-    createCode("love", "love me? pls?")
-    createCode("social", "all my social networks")
-    createCode("clear","clean terminal")
+    commandsOutput();
   }
   else if(value === "love"){
     createText("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ ")
@@ -104,11 +127,7 @@ async function getInputValue(){
   }
   else if(value === "about"){
     trueValue(value);
-    createText(" |˶˙ᵕ˙ )ﾉﾞ")
-    createText("hola")
-    createText("i am sam")
-    createText("im a computer engineering grad")
-    createText("and i play video games")
+    aboutOutput();
   }
   else if(value === "games"){
     trueValue(value);
@@ -135,7 +154,7 @@ async function getInputValue(){
     createText("(  • · • ) you're on your own lol :3")
   }
   else if(value == "test"){
-    window.location.replace("profile.html");
+    window.location.replace("http://www.w3schools.com");
   }
   else{
     falseValue(value);
