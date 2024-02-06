@@ -18,13 +18,58 @@ app.addEventListener("click", function(event){
   input.focus();
 })
 
+function createBar(){
+  const div1 = document.createElement("div");
+  const div2 = document.createElement("div");
+  div1.setAttribute("class","progress-bar progress-bar-show-percent")
+  div1.setAttribute("id","loading-bar")
+  div2.setAttribute("class","progress-bar-filled")
+  div2.setAttribute("data-filled","loading page 0%")
+  div1.appendChild(div2);
+  document.body.appendChild(div1);
+}
+
 function updateProgressBar(percentage) {
   const progressBarFilled = document.querySelector('.progress-bar-filled');
   progressBarFilled.style.width = percentage;
   progressBarFilled.setAttribute('data-filled', 'loading page ' + percentage );
 }
 
+function access(){
+  const div = document.createElement("div");
+  const p = document.createElement("p");
+  const inputaccess = document.createElement("input");
+  const perror = document.createElement("p");
+  const div1 = document.createElement("div");
+  const i = document.createElement("i");
+  i.setAttribute("class", "fas fa-chevron-right icone")
+  div1.setAttribute("class","accessinput")
+  p.textContent = "what is my first name?";
+  inputaccess.setAttribute("class","access");
+  div.appendChild(p);
+  div1.appendChild(i);
+  div1.appendChild(inputaccess);
+  div.appendChild(div1);
+  div.appendChild(perror);
+  document.body.appendChild(div);
+  
+  inputaccess.addEventListener("input", async function() {
+    if (inputaccess.value.toLowerCase() === "samuel ii") {
+      perror.setAttribute("class","success")
+      perror.textContent = "correct"
+      await delay(1000);
+      div.remove();
+      open_terminal();
+    }
+    else{
+      perror.setAttribute("class","error")
+      perror.textContent = "try again"
+    }
+  });
+}
+
 async function open_terminal(){
+  createBar();
   const load = document.getElementById('loading-bar');
   updateProgressBar('0%');
   await delay(2000); 
@@ -34,7 +79,6 @@ async function open_terminal(){
       if (currentPercentage > 100) {
           clearInterval(interval);
           await delay(1000);
-          // document.getElementById('loading-bar').remove();
           load.remove();
           welcome();
       } else {
@@ -42,14 +86,6 @@ async function open_terminal(){
       }
   }, 50);
 
-}
-
-function access(){
-  const div = document.createElement("div");
-  const p = document.createElement("p");
-  div.setAttribute("class", "access");
-  p.textContent = "test ";
-  div.appendChild(p);
 }
 
 function new_line(){
@@ -213,4 +249,4 @@ function createCode(code, text){
   app.appendChild(p);
 }
 
-open_terminal();
+access();

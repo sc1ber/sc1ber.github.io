@@ -232,3 +232,12 @@ img {
         opacity:0
     }
 }
+
+.access{
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.accessinput{
+    display: flex;
+}
