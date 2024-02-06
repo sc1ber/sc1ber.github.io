@@ -147,6 +147,7 @@ function commandsOutput(){
   createCode("papers", "papers published")
   createCode("contact", "get in touch")
   createCode("gui", "gui experience")
+  createCode("exit", "go back")
   createCode("clear","clean terminal")
 }
 
@@ -192,6 +193,10 @@ async function getInputValue(){
     createText("<span class='terminal-prompt'>Loading GUI Experience...</span>")
     await delay(3000);
     window.location.replace("gui.html");
+  }
+  else if(value === "exit"){
+    trueValue(value);
+    window.location.replace("index.html");
   }
   else if(value === "help"){
     falseValue(value);
