@@ -191,7 +191,7 @@ async function getInputValue(){
     trueValue(value);
     createText("<span class='terminal-prompt'>Loading GUI Experience...</span>")
     await delay(3000);
-    window.location.replace("gui");
+    window.location.replace("gui.html");
   }
   else if(value === "help"){
     falseValue(value);
