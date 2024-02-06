@@ -134,7 +134,7 @@ async function getInputValue(){
     createText("(  • · • ) you're on your own lol :3")
   }
   else if(value == "pro"){
-    window.location.replace("profile");
+    window.location.replace("profile.html");
   }
   else{
     falseValue(value);
