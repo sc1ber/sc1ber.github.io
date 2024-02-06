@@ -25,6 +25,7 @@ function updateProgressBar(percentage) {
 }
 
 async function open_terminal(){
+  const load = document.getElementById('loading-bar');
   updateProgressBar('0%');
   await delay(2000); 
   let currentPercentage = 0;
@@ -33,17 +34,25 @@ async function open_terminal(){
       if (currentPercentage > 100) {
           clearInterval(interval);
           await delay(1000);
-          document.getElementById('loading-bar').remove();
+          // document.getElementById('loading-bar').remove();
+          load.remove();
           welcome();
       } else {
           updateProgressBar(currentPercentage + '%');
       }
   }, 50);
-  
+
+}
+
+function access(){
+  const div = document.createElement("div");
+  const p = document.createElement("p");
+  div.setAttribute("class", "access");
+  p.textContent = "test ";
+  div.appendChild(p);
 }
 
 function new_line(){
-  
   const p = document.createElement("p");
   const span1 = document.createElement("span");
   const span2 = document.createElement("span");
@@ -66,7 +75,6 @@ function new_line(){
   div.appendChild(input);
   app.appendChild(div);
   input.focus();
-  
 }
 
 function removeInput(){
@@ -100,8 +108,15 @@ function commandsOutput(){
   createCode("commands", "list all commands")
   createCode("about", "who am i?")
   createCode("social", "all my social networks")
+  createCode("papers", "papers published")
   createCode("contact", "get in touch")
+  createCode("gui", "gui experience")
   createCode("clear","clean terminal")
+}
+
+function papersOutput(){
+  createText("<a href='https://ieeexplore.ieee.org/document/9936874' target='_blank'><i class='fa-solid fa-book'></i><span class ='success'> Thesis: </span>Vehicle Type Classification and Counting Using YOLOv4 Algorithm (IEEE published)</a>")
+  createText("<i class='fa-solid fa-book'></i><span class ='success'> Design: </span>Finder System Using Radio Transceiver and Wi-Fi Module")
 }
 
 async function getInputValue(){
@@ -117,12 +132,30 @@ async function getInputValue(){
   }
   else if(value === "social"){
     trueValue(value);
-    createText("<a href='https://github.com/sc1ber/' target='_blank'><i class='fab fa-github'></i><span class ='success'> Github: </span>sc1ber (click me)</a>")
-    createText("<a href='https://www.linkedin.com/in/samuel-ii-imperial-b4b695201/' target='_blank'><i class='fa-brands fa-linkedin'></i><span class ='success'> Linkedin: </span>Samuel II Imperial (click me)</a>")
+    createText("<a href='https://github.com/sc1ber/' target='_blank'><i class='fab fa-github'></i><span class ='success'> Github: </span>sc1ber</a>")
+    createText("<a href='https://www.linkedin.com/in/samuel-ii-imperial-b4b695201/' target='_blank'><i class='fa-brands fa-linkedin'></i><span class ='success'> Linkedin: </span>Samuel II Imperial</a>")
   }  
+  else if(value === "contact"){
+    trueValue(value);
+    createText("<a href='#' id='contactLink'><i class='fa-solid fa-envelope'></i><span class='success'> Email: </span> send a message</a>")
+    
+    document.getElementById('contactLink').addEventListener('click', function() {
+      window.location.href = "mailto:siicimperial@hotmail.com";  
+    });
+  }
+  else if(value === "papers"){
+    trueValue(value);
+    papersOutput();
+  }
   else if(value === "clear"){
     document.querySelectorAll("p").forEach(e => e.parentNode.removeChild(e));
     document.querySelectorAll("section").forEach(e => e.parentNode.removeChild(e));
+  }
+  else if(value === "gui"){
+    trueValue(value);
+    createText("<span class='terminal-prompt'>Loading GUI Experience...</span>")
+    await delay(3000);
+    window.location.replace("gui.html");
   }
   else if(value === "help"){
     falseValue(value);
