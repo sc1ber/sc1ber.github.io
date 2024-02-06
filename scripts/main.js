@@ -26,12 +26,7 @@ async function open_terminal(){
   await delay(1000);
   createText("try these commands:")
   await delay(500);
-  createCode("commands", "list all commands")
-  createCode("about", "who am i?")
-  createCode("games","games i play")
-  createCode("love", "love me? pls?")
-  createCode("social", "all my social networks")
-  createCode("clear","clean terminal")
+  commandsOutput();
 
   await delay(500);
   new_line();
@@ -69,19 +64,24 @@ function removeInput(){
   app.removeChild(div);
 }
 
+function commandsOutput(){
+  createCode("commands", "list all commands")
+  createCode("about", "who am i?")
+  createCode("games","games i play")
+  createCode("sus", "?????")
+  createCode("social", "all my social networks")
+  createCode("pro","super secret")
+  createCode("clear","clean terminal")
+}
+
 async function getInputValue(){
   
   const value = document.querySelector("input").value;
   if(value === "commands"){
     trueValue(value);
-    createCode("commands", "list all commands")
-    createCode("about", "who am i?")
-    createCode("games","games i play")
-    createCode("love", "love me? pls?")
-    createCode("social", "all my social networks")
-    createCode("clear","clean terminal")
+    commandsOutput();
   }
-  else if(value === "love"){
+  else if(value === "sus"){
     createText("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ ")
     createText("⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀ ")
     createText("⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀ ")
@@ -123,8 +123,7 @@ async function getInputValue(){
     createText("<i class='fa-brands fa-discord'></i> scethious")
     createText("<a href='https://www.instagram.com/seken.sam/' target='_blank'><i class='fa-brands fa-instagram'></i> seken.sam</a>")
     createText("<a href='https://www.facebook.com/seken.sam/' target='_blank'><i class='fa-brands fa-facebook'></i> seken.sam</a>")
-    createText("<a href='https://github.com/sc1ber/' target='_blank'><i class='fab fa-github'></i> sc1ber</a>")
-    createText("<a href='https://www.linkedin.com/in/samuel-ii-imperial-b4b695201/' target='_blank'><i class='fa-brands fa-linkedin'></i> sam imperial</a>")
+    createText("<a href='https://twitter.com/saaaaambody' target='_blank'><i class='fa-brands fa-square-x-twitter'></i> saaaaambody</a>")
   }  
   else if(value === "clear"){
     document.querySelectorAll("p").forEach(e => e.parentNode.removeChild(e));
@@ -134,10 +133,13 @@ async function getInputValue(){
     falseValue(value);
     createText("(  • · • ) you're on your own lol :3")
   }
+  else if(value == "pro"){
+    window.location.replace("profile.html");
+  }
   else{
     falseValue(value);
-    createText(`¯\\_(ツ)_/¯ command not found: ${value}`)
-    createText("( ☞˙ᵕ˙)☞ try'commands'")
+    createText(`¯\\_(ツ)_/¯ command not found:  <span class='error'>${value}</span>`)
+    createText("( ☞˙ᵕ˙)☞ try <span class='success'>commands</span>")
   }
 }
 
@@ -148,7 +150,7 @@ function trueValue(value){
   const i = document.createElement("i");
   i.setAttribute("class", "fas fa-chevron-right icone")
   const mensagem = document.createElement("h2");
-  mensagem.setAttribute("class", "sucess")
+  mensagem.setAttribute("class", "success")
   mensagem.textContent = `${value}`;
   div.appendChild(i);
   div.appendChild(mensagem);
