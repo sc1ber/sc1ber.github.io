@@ -92,7 +92,7 @@ p.path span + span + span{
     flex-direction: column;
     width:100%;
     max-width:99%;
-    height:60%;
+    height:95%;
     overflow: hidden;
     margin:20px;
     cursor: text;

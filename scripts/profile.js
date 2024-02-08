@@ -72,7 +72,7 @@ async function open_terminal(){
   createBar();
   const load = document.getElementById('loading-bar');
   updateProgressBar('0%');
-  await delay(2000); 
+  await delay(1000); 
   let currentPercentage = 0;
   const interval = setInterval(async function () {
     currentPercentage += 1;
@@ -146,7 +146,7 @@ function commandsOutput(){
   createCode("social", "all my social networks")
   createCode("papers", "papers published")
   createCode("contact", "get in touch")
-  createCode("gui", "gui experience")
+  createCode("gui", "<a href='gui.html'>gui experience (click me)</a>")
   createCode("exit", "go back")
   createCode("clear","clean terminal")
 }
