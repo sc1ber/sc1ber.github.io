@@ -76,7 +76,7 @@ function commandsOutput(){
 
 async function getInputValue(){
   
-  const value = document.querySelector("input").value;
+  const value = document.querySelector("input").value.toLowerCase();
   if(value === "commands"){
     trueValue(value);
     commandsOutput();
