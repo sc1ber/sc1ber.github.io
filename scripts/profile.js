@@ -44,7 +44,7 @@ function access(){
   const i = document.createElement("i");
   i.setAttribute("class", "fas fa-chevron-right icone")
   div1.setAttribute("class","accessinput")
-  p.textContent = "what is my first name?";
+  p.textContent = "what is my given name?";
   inputaccess.setAttribute("class","access");
   div.appendChild(p);
   div1.appendChild(i);
